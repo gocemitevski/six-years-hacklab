@@ -1,10 +1,14 @@
 // Wait for the SVG to be loaded
 document.querySelector("#syhl").addEventListener("load", function () {
     svgDoc = this.getSVGDocument();
+    svgElementsContainer = svgDoc.querySelector("#animated_elements");
     svgElements = Array.from(svgDoc.querySelector("#animated_elements").children);
 
     // Create new GreenSock timeline with a few parameters
     sYHLTimeline = new TimelineMax({paused: true, repeat: -1, yoyo: true, repeatDelay: 1});
+
+    // Make SVG visible
+    sYHLTimeline.set(svgElementsContainer, {visibility: "visible"});
 
     // Add tweens to GreenSock sequence
     sYHLTimeline.add(TweenMax.staggerFrom(svgElements, 1, {alpha: 0, ease: Power0.easeOut}, 0.2));

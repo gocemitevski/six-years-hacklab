@@ -80,7 +80,7 @@
         </symbol>
     </defs>
     <rect id="podloga_1_" x="0" y="0" width="858.898" height="1207.558"/>
-    <g id="animated_elements">
+    <g id="animated_elements" style="visibility: hidden">
         <use xlink:href="#kika_symbol_desaturated"  width="352.378" height="352.378" x="-176.189" y="-176.189" transform="matrix(0.4438 0 0 -0.4438 596.9199 268.837)" style="overflow:visible;opacity:0.9;"/>
 
         <use xlink:href="#kika_symbol_desaturated"  width="352.378" height="352.378" x="-176.189" y="-176.189" transform="matrix(0.4438 0 0 -0.4438 429.4489 268.837)" style="overflow:visible;opacity:0.9;"/>
