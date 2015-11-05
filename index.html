@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Шест години хаклаб КИКА - Гоце Митевски</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Анимирана верзија на постер за шест-годишнината на скопскиот хаклаб КИКА, изработена со помош на SVG и GreenSock од Гоце Митевски">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="presentation">
+            <div class="controls">
+                <div class="left">
+                    <button id="playPresentation">Play</button>
+                    <button id="pausePresentation">Pause</button>
+                </div>
+                <div class="right">
+                    <button id="reloadPresentation">Reload</button>
+                </div>
+            </div>
+            <object id="syhl" type="image/svg+xml" data="svg/six-years-kika-hacklab-poster-o.svg" style="width: auto; height: 100vh;">
+                <!-- Fallback -->
+                <h1>Six Years <a href="http://b10g.spodeli.org/">KIKA Hacklab</a> presentation</h1>
+                <p>Sorry, your browser does not support SVG.</p>
+            </object>
+            <div class="credits">
+                <p><a href="http://www.w3.org/Graphics/SVG/">SVG</a> + <a href="http://greensock.com/gsap">GSAP</a> | <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC-BY-SA 4.0</a> <a href="http://www.nicer2.com/">Goce Mitevski</a> | <a href="http://www.nicer2.com/">GitHub</a></p>
+            </div>
+        </div>
+        <script src="js/greensock-js/src/minified/TweenMax.min.js"></script>
+        <script src="js/animations.min-nb.js"></script>
+    </body>
+</html>

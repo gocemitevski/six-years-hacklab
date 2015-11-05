@@ -1,0 +1,60 @@
+$base-fontsize: 13pt;
+
+@mixin control {
+    position: absolute;
+    top: 20px;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: $base-fontsize;
+    margin: 0;
+    color: #555;
+}
+
+a{
+    color: inherit;
+}
+
+h1{
+    font-size: 55pt;
+}
+h2{
+    font-size: 34pt;
+}
+h3{
+    font-size: 21pt;
+}
+h4{
+    font-size: $base-fontsize;
+}
+h5{
+    font-size: $base-fontsize;
+    font-style: oblique;
+}
+h6{
+    font-size: $base-fontsize;
+    font-weight: normal;
+}
+
+.presentation{
+    text-align: center;
+    background: black;
+}
+
+.controls .left{
+    @include control;
+    left: 20px;
+}
+
+.controls .right{
+    @include control;
+    right: 20px;
+}
+
+.credits{
+    width: 100%;
+    position: absolute;
+    font-size: 10pt;
+    bottom: 10px;
+}
