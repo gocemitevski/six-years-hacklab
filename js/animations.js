@@ -31,7 +31,7 @@ document.querySelector("#syhl").addEventListener("load", function () {
         // Shuffle elements in array
         svgElements = shuffle(svgElements);
         // Remove the first animation - drawSix from the timeline
-        sYHLTimeline.remove(drawSix);
+        // sYHLTimeline.remove(drawSix);
     }
 
     // Set transform-origin to element's center
