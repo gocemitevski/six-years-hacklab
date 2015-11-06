@@ -1,17 +1,38 @@
-// Wait for the SVG to be loaded
+// Wait for the SVG graphic to load
 document.querySelector("#syhl").addEventListener("load", function () {
     var svgDoc = this.getSVGDocument();
     var svgElementsContainer = svgDoc.querySelector("#animated_elements");
     var svgElements = Array.from(svgDoc.querySelector("#animated_elements").children);
 
+    var drawSix = new TweenMax.staggerFrom(svgElements, 1, {opacity: 0, ease: Power0.easeOut}, 0.1);
+    var slideLeft = new TweenMax.staggerTo(shuffle(svgElements), 0.5, {opacity: 0, x: "-=80", rotation: "-5", ease: SlowMo.easeOut}, 0.05);
+    var reappear = new TweenMax.staggerTo(shuffle(svgElements), 0.5, {opacity: 1, x: "+=80", rotation: "0", ease: SlowMo.easeOut}, 0.05);
+    var slideRight = new TweenMax.staggerTo(shuffle(svgElements), 0.5, {opacity: 0, x: "+=80", rotation: "5", ease: SlowMo.easeOut}, 0.05);
+
     // Create new GreenSock timeline with a few parameters
-    var sYHLTimeline = new TimelineMax({repeat: -1, yoyo: true, repeatDelay: 1});
+    var sYHLTimeline = new TimelineMax({repeat: -1, repeatDelay: 1, yoyo: true});
 
     // Make animated elements container visible before tweening
     sYHLTimeline.set(svgElementsContainer, {visibility: "visible"});
 
-    // Add tweens to GreenSock sequence
-    sYHLTimeline.add(TweenMax.staggerFrom(svgElements, 1, {alpha: 0, ease: Power0.easeOut}, 0.2));
+    // Add tweens to the GSAP sequence
+    sYHLTimeline.add(
+            [
+                drawSix,
+                slideLeft,
+                reappear,
+                slideRight
+            ], 0, "sequence", 1);
+
+    // Randomize animated elements on repeat
+    sYHLTimeline.eventCallback("onRepeat", randomizeElements);
+
+    function randomizeElements() {
+        // Shuffle elements in array
+        svgElements = shuffle(svgElements);
+        // Remove the first animation - drawSix from the timeline
+        sYHLTimeline.remove(drawSix);
+    }
 
     // Set transform-origin to element's center
     // sYHLTimeline.set(animatedElements, {transformOrigin: "50% 50%"});
@@ -37,3 +58,24 @@ document.querySelector("#syhl").addEventListener("load", function () {
     });
 
 });
+
+// Fisher-Yates (aka Knuth) Shuffle
+// http://stackoverflow.com/a/2450976/3190066
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
