@@ -43,17 +43,22 @@ document.querySelector("#syhl").addEventListener("load", function () {
     // Seek to a certain time the animation
     // sYHLTimeline.seek(2);
 
-    var pausePresentation = document.getElementById("pausePresentation");
-    var reloadPresentation = document.getElementById("reloadPresentation");
+    var playPresentation = document.querySelector("#playPresentation");
+    var stopPresentation = document.querySelector("#stopPresentation");
+    var reloadPresentation = document.querySelector("#reloadPresentation");
 
     // Pause presentation on click
-    pausePresentation.addEventListener("click", function () {
+    playPresentation.addEventListener("click", function () {
+        sYHLTimeline.play();
+    });
+
+    // Pause presentation on click
+    stopPresentation.addEventListener("click", function () {
         sYHLTimeline.pause();
     });
 
     // Reload presentation on click
     reloadPresentation.addEventListener("click", function () {
-        sYHLTimeline.kill();
         sYHLTimeline.restart();
     });
 
