@@ -5,7 +5,7 @@ document.querySelector("#syhl").addEventListener("load", function () {
     var svgElements = Array.from(svgDoc.querySelector("#animated_elements").children);
 
     // Create new GreenSock timeline with a few parameters
-    var sYHLTimeline = new TimelineMax({paused: true, repeat: -1, yoyo: true, repeatDelay: 1});
+    var sYHLTimeline = new TimelineMax({repeat: -1, yoyo: true, repeatDelay: 1});
 
     // Make animated elements container visible before tweening
     sYHLTimeline.set(svgElementsContainer, {visibility: "visible"});
@@ -22,14 +22,8 @@ document.querySelector("#syhl").addEventListener("load", function () {
     // Seek to a certain time the animation
     // sYHLTimeline.seek(2);
 
-    var playPresentation = document.getElementById("playPresentation");
     var pausePresentation = document.getElementById("pausePresentation");
     var reloadPresentation = document.getElementById("reloadPresentation");
-
-    // Play presentation on click
-    playPresentation.addEventListener("click", function () {
-        sYHLTimeline.play();
-    });
 
     // Pause presentation on click
     pausePresentation.addEventListener("click", function () {
