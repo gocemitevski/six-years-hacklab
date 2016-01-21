@@ -3,7 +3,7 @@ document.querySelector("#syhl").addEventListener("load", function (e) {
 
     var svgDoc = this.contentDocument;
     var svgElementsContainer = svgDoc.querySelector("#animated_elements");
-    var svgElements = Array.from(svgDoc.querySelector("#animated_elements").children);
+    var svgElements = Array.from(svgElementsContainer.children);
 
     var drawSix = new TweenMax.staggerFrom(svgElements, 1, {opacity: 0, ease: Power0.easeOut}, 0.1);
     var slideLeft = new TweenMax.staggerTo(shuffle(svgElements), 0.5, {opacity: 0, x: "-=80", rotation: "-5", ease: SlowMo.easeOut}, 0.05);
@@ -26,14 +26,9 @@ document.querySelector("#syhl").addEventListener("load", function (e) {
             ], 0, "sequence", 1);
 
     // Randomize animated elements on repeat
-    sYHLTimeline.eventCallback("onRepeat", randomizeElements);
-
-    function randomizeElements() {
-        // Shuffle elements in array
-        svgElements = shuffle(svgElements);
-        // Remove the first animation - drawSix from the timeline
-        // sYHLTimeline.remove(drawSix);
-    }
+    sYHLTimeline.eventCallback("onRepeat", function () {
+        shuffle(svgElements);
+    });
 
     // Set transform-origin to element's center
     // sYHLTimeline.set(animatedElements, {transformOrigin: "50% 50%"});
