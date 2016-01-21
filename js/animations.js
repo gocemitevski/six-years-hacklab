@@ -1,6 +1,7 @@
 // Wait for the SVG graphic to load
-document.querySelector("#syhl").addEventListener("load", function () {
-    var svgDoc = this.getSVGDocument();
+document.querySelector("#syhl").addEventListener("load", function (e) {
+
+    var svgDoc = this.contentDocument;
     var svgElementsContainer = svgDoc.querySelector("#animated_elements");
     var svgElements = Array.from(svgDoc.querySelector("#animated_elements").children);
 
@@ -43,24 +44,24 @@ document.querySelector("#syhl").addEventListener("load", function () {
     // Seek to a certain time the animation
     // sYHLTimeline.seek(2);
 
-    var playPresentation = document.querySelector("#playPresentation");
-    var stopPresentation = document.querySelector("#stopPresentation");
-    var reloadPresentation = document.querySelector("#reloadPresentation");
+//    var playPresentation = document.querySelector("#playPresentation");
+//    var stopPresentation = document.querySelector("#stopPresentation");
+//    var reloadPresentation = document.querySelector("#reloadPresentation");
 
     // Pause presentation on click
-    playPresentation.addEventListener("click", function () {
-        sYHLTimeline.play();
-    });
+//    playPresentation.addEventListener("click", function () {
+//        sYHLTimeline.play();
+//    });
 
     // Pause presentation on click
-    stopPresentation.addEventListener("click", function () {
-        sYHLTimeline.pause();
-    });
+//    stopPresentation.addEventListener("click", function () {
+//        sYHLTimeline.pause();
+//    });
 
     // Reload presentation on click
-    reloadPresentation.addEventListener("click", function () {
-        sYHLTimeline.restart();
-    });
+//    reloadPresentation.addEventListener("click", function () {
+//        sYHLTimeline.restart();
+//    });
 
 });
 
