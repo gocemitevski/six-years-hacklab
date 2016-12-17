@@ -1,7 +1,7 @@
 // Wait for the SVG graphic to load
 document.querySelector("#syhl").addEventListener("load", function (e) {
 
-    var svgDoc = this.contentDocument;
+    var svgDoc = this.getSVGDocument();
     var svgElementsContainer = svgDoc.querySelector("#animated_elements");
     var svgElements = Array.from(svgElementsContainer.children);
 
